@@ -33,12 +33,4 @@ This is my personal portfolio website with a blog section built using the MERN s
 - **Database:**
   - MongoDB
 
-## Installation
-1. Clone the repository: `git clone https://github.com/your-username/your-portfolio.git`
-2. Navigate to the project directory: `cd your-portfolio`
-3. Install dependencies for the frontend and backend:
-   ```bash
-   cd client
-   npm install
-   cd ../server
-   npm install
+
