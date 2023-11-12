@@ -137,3 +137,49 @@ export const HeaderButton = styled.button`
     transform: translateY(-50%) rotateX(180deg); /* Rotate the arrow to point downward */
   }
 `;
+export const AboutSection = styled.div`
+  background-color: #111111;
+  height: 400px;
+`;
+
+export const AboutFlex = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+export const SectionHeading = styled.h1`
+  color: white;
+  text-align: center;
+`;
+
+export const AnimatedParagraph = styled.p`
+  color: white;
+  font-size: 16px;
+  width: 1400px;
+  margin-top: 25px;
+  margin-left: 30px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 1s ease-in-out, transform 5s ease-in-out;
+  &.scale-up {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
+
+export const AnimatedProfilePic = styled.img`
+  border-radius: 20px;
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: 30px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 1s ease-in-out, transform 5s ease-in-out;
+  &.scale-up {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
