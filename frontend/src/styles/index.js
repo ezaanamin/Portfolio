@@ -140,12 +140,25 @@ export const HeaderButton = styled.button`
 export const AboutSection = styled.div`
   background-color: #111111;
   height: 400px;
+
+
+  @media (max-width: 768px) {
+    height: 800px;
+
+   
+
+  }
 `;
 
 export const AboutFlex = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse; /* Reverse the order on mobile screens */
+    align-items: center; /* Center items on mobile screens */
+  }
 `;
 
 export const SectionHeading = styled.h1`
@@ -153,23 +166,34 @@ export const SectionHeading = styled.h1`
   text-align: center;
 `;
 
+
+
 export const AnimatedParagraph = styled.p`
   color: white;
   font-size: 16px;
-  width: 1400px;
+  max-width: 1400px; /* Use max-width for responsiveness */
   margin-top: 25px;
   margin-left: 30px;
-  opacity: 0;
+ opacity: 0;
   transform: scale(0.8);
-  transition: opacity 1s ease-in-out, transform 5s ease-in-out;
+  transition: opacity 1s ease-in-out, transform 5s ease-in-out; 
+
   &.scale-up {
     opacity: 1;
     transform: scale(1);
   }
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    margin-left: 10px;
+    max-width: 240px; /* Adjusted max-width for smaller screens */
+  }
 `;
 
+
+
 export const AnimatedProfilePic = styled.img`
-  border-radius: 20px;
+ border-radius: 20px;
   width: 200px;
   height: 200px;
   margin-top: 20px;
@@ -181,5 +205,12 @@ export const AnimatedProfilePic = styled.img`
   &.scale-up {
     opacity: 1;
     transform: scale(1);
+  }
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto 0 auto; 
+    display: block;
+    position: relative;
   }
 `;
