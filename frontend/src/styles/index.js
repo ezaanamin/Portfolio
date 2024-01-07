@@ -164,6 +164,7 @@ export const AboutFlex = styled.div`
 export const SectionHeading = styled.h1`
   color: white;
   text-align: center;
+  margin-bottom:10px;
 `;
 
 
@@ -213,4 +214,55 @@ export const AnimatedProfilePic = styled.img`
     display: block;
     position: relative;
   }
+`;
+
+export const ContactMeSection = styled.div`
+  background-color: #444444;
+  height: 470px;
+  color: white;
+
+
+`;
+
+export const InputSection=styled.div`
+display:flex;
+flex-direction: column;
+
+  align-items: center; 
+  justify-content: center; 
+`
+export const ContactMeInput = styled.input`
+  background-color: #333333;
+  border: 2px solid #555555;
+  color: white;
+  height: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 500px; 
+`;
+
+export const ContactMeButton = styled.button`
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #87CEEB;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s, opacity 0.3s;
+
+  &:hover {
+    background-color: #6EA4C9;
+    opacity: 0.8;
+  }
+`;
+ export const ContactMeTextarea = styled.textarea`
+  background-color: #333333;
+  border: 2px solid #555555;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 500px;
+  height: 100px;
 `;

@@ -23,7 +23,7 @@ const Skills = styled.div`
   margin-right: 25px;
   opacity: 0;
   transform: translateY(20px); /* Initial translateY for the animation effect */
-  transition: opacity 5s ease, transform 5s ease;
+  transition: opacity 3s ease, transform 3s ease;
   &.in-view {
     opacity: 1;
     transform: translateY(0);
@@ -53,6 +53,8 @@ const animateOnScroll = () => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('in-view');
+      } else {
+        entry.target.classList.remove('in-view'); // Remove the class when not intersecting
       }
     });
   }, options);
@@ -61,7 +63,6 @@ const animateOnScroll = () => {
     observer.observe(box);
   });
 };
-
 const SkillsComponent = () => {
   useEffect(() => {
     animateOnScroll();
