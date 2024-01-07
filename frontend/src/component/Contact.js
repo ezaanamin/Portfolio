@@ -25,7 +25,7 @@ function Contact() {
 
 
   return (
-    <ContactMeSection>
+    <ContactMeSection id="contact">
     <SectionHeading>Contact Me</SectionHeading>
     <InputSection>
       <ContactMeInput
