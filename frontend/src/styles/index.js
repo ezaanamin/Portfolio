@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
+
 const expandAnimation = keyframes`
   0% {
     transform: scale(0);
@@ -15,11 +16,11 @@ const fadeIn = keyframes`
 	0% {
 		opacity: 0;
 	}
-
 	100% {
 		opacity: 1;
 	}
 `;
+
 export const Body = styled.div`
   background-color: black;
   margin: 0;
@@ -29,7 +30,7 @@ export const Body = styled.div`
 
 export const Background = styled.div`
   position: relative;
-  height: 800px;
+  height: 80vh; /* Use relative height */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,19 +38,22 @@ export const Background = styled.div`
   color: white;
 
   @media (max-width: 768px) {
-    height: 300px;
-
+    height: 40vh; /* Adjusted height for mobile */
   }
 
-  &::before {
+  &::before, &::after {
     content: "";
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: black;
     z-index: -1;
+    animation: ${fadeIn} 30s ease forwards;
+  }
+
+  &::before {
+    background-color: black;
     animation: initialBackground 0s 3s forwards;
   }
 
@@ -60,93 +64,115 @@ export const Background = styled.div`
   }
 
   &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: url(${(props) => props.headerImage}); // Use the prop value
+    background-image: url(${(props) => props.headerImage});
     background-size: cover;
     background-position: center;
-    z-index: -2;
     animation-delay: 10s;
-    animation: ${fadeIn} 30s ease 0s 1 normal forwards;
   }
 
-  animation: ${expandAnimation} 3s ease 0s 1 normal forwards;
+  animation: ${expandAnimation} 3s ease forwards;
 `;
+
 export const Heading = styled.h1`
-  font-size: 60px;
+  font-size: 3rem; /* Use rem for scalability */
   filter: brightness(100%);
 
   @media (max-width: 768px) {
-    margin-top:20px;
-  font-size:20px;
-
+    font-size: 1.5rem; /* Adjusted font size for mobile */
   }
-
-
 `;
 
 export const SubHeading = styled.h3`
   color: white;
 `;
+
 export const HeaderButton = styled.button`
-  position: relative;
-  width: 319px;
-  height: 54px;
+  position: relative; 
+  width: 80%;
+  max-width: 319px;
+  min-width:400px;
+  height: 50px;
   border-radius: 50px;
   color: black;
   background-color: #87CEEB;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 1rem; 
   margin-top: 20px;
   cursor: pointer;
-  transition: background-color 0.3s, opacity 0.3s; /* Add transition for smooth animation */
-  opacity: 1; /* Initially set opacity to 1 */
+  transition: background-color 0.3s, opacity 0.3s;
+  opacity: 1;
+  overflow: hidden;
 
   &:hover {
     background-color: #6EA4C9;
-    opacity: 0.8; /* Set the desired opacity on hover */
+    opacity: 0.8;
   }
 
   @media (max-width: 768px) {
-    width: 40%; /* Full width on smaller screens */
-    height: 50px; /* Adjusted height for smaller screens */
-    font-size: 16px; /* Adjusted font size for smaller screens */
+    height: 45px; /* Adjusted height for mobile */
+    font-size: 0.875rem; /* Adjusted font size for mobile */
   }
 
   &::after {
     content: '';
     position: absolute;
     top: 50%;
-    right: 15px; /* Adjust this value to control the arrow's position */
+    right: 15px;
     transform: translateY(-50%);
     width: 0;
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-bottom: 12px solid #000;
+    border-bottom: 12px solid #000; /* Arrow color */
     opacity: 0;
-    transition: opacity 0.3s, transform 0.3s; /* Add transition for smooth animation */
+    transition: opacity 0.3s, transform 0.3s;
   }
 
   &:hover::after {
     opacity: 1;
-    transform: translateY(-50%) rotateX(180deg); /* Rotate the arrow to point downward */
+    transform: translateY(-50%) rotate(180deg); /* Fixed rotation to rotate down */
   }
 `;
+
+
+
+
+export const cardStyle = {
+  width: '350px',
+  height: '350px',
+  perspective: '1000px',
+  marginRight: '20px', // Fixed typo here
+};
+
+export const cardWrapperStyle = (isFlipped) => ({
+  width: '100%',
+  height: '100%',
+  transformStyle: 'preserve-3d',
+  transition: 'transform 1s',
+  transform: isFlipped ? 'rotateY(360deg)' : 'rotateY(0deg)',
+});
+
+export const cardFaceStyle = (props) => ({
+  width: '100%',
+  height: '100%',
+  position: 'absolute',
+  backfaceVisibility: 'hidden',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  fontSize: '24px',
+  backgroundColor: props.isFlipped ? props.flippedBackgroundColor || '#2ecc71' : props.frontBackgroundColor || '#3498db',
+  color: props.isFlipped ? `rgba(255, 255, 255, 0.7)` : '#fff',
+  backgroundImage: props.isFlipped ? `url(${props.backImage})` : 'none',
+  backgroundSize: 'cover',
+  boxShadow: props.is3D ? '0 10px 20px rgba(0, 0, 0, 0.2)' : 'none',
+});
 export const AboutSection = styled.div`
   background-color: #111111;
-  height: 400px;
-
+  height: auto; 
+  padding: 20px; 
 
   @media (max-width: 768px) {
-    height: 800px;
-
-   
-
+    padding: 10px; /* Reduced padding for mobile */
   }
 `;
 
@@ -156,26 +182,24 @@ export const AboutFlex = styled.div`
   justify-content: center;
 
   @media (max-width: 768px) {
-    flex-direction: column-reverse; /* Reverse the order on mobile screens */
-    align-items: center; /* Center items on mobile screens */
+    flex-direction: column-reverse; 
+    align-items: center; 
   }
 `;
 
 export const SectionHeading = styled.h1`
   color: white;
   text-align: center;
-  margin-bottom:10px;
+  margin-bottom: 10px;
 `;
-
-
 
 export const AnimatedParagraph = styled.p`
   color: white;
   font-size: 16px;
-  max-width: 1400px; /* Use max-width for responsiveness */
+  max-width: 1400px; 
   margin-top: 25px;
   margin-left: 30px;
- opacity: 0;
+  opacity: 0;
   transform: scale(0.8);
   transition: opacity 1s ease-in-out, transform 5s ease-in-out; 
 
@@ -185,16 +209,14 @@ export const AnimatedParagraph = styled.p`
   }
 
   @media (max-width: 768px) {
-    font-size: 12px;
-    margin-left: 10px;
-    max-width: 240px; /* Adjusted max-width for smaller screens */
+    font-size: 12px; 
+    margin-left: 10px; 
+    max-width: 100%; /* Full width on mobile */
   }
 `;
 
-
-
 export const AnimatedProfilePic = styled.img`
- border-radius: 20px;
+  border-radius: 20px;
   width: 200px;
   height: 200px;
   margin-top: 20px;
@@ -203,34 +225,38 @@ export const AnimatedProfilePic = styled.img`
   opacity: 0;
   transform: scale(0.8);
   transition: opacity 1s ease-in-out, transform 5s ease-in-out;
+
   &.scale-up {
     opacity: 1;
     transform: scale(1);
   }
+
   @media (max-width: 768px) {
-    width: 100px;
-    height: 100px;
-    margin: 20px auto 0 auto; 
-    display: block;
-    position: relative;
+    width: 100px; 
+    height: 100px; 
+    margin: 20px auto; /* Center on mobile */
   }
 `;
 
 export const ContactMeSection = styled.div`
   background-color: #444444;
-  height: 470px;
+  height: auto; /* Change height to auto for responsiveness */
   color: white;
+  padding: 20px; /* Added padding for better spacing */
 
-
+  @media (max-width: 768px) {
+    height: auto; /* Allow height to adjust on mobile */
+    padding: 10px; /* Adjust padding for mobile */
+  }
 `;
 
-export const InputSection=styled.div`
-display:flex;
-flex-direction: column;
-
+export const InputSection = styled.div`
+  display: flex;
+  flex-direction: column;
   align-items: center; 
   justify-content: center; 
-`
+`;
+
 export const ContactMeInput = styled.input`
   background-color: #333333;
   border: 2px solid #555555;
@@ -239,7 +265,8 @@ export const ContactMeInput = styled.input`
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
-  width: 500px; 
+  width: 100%; /* Make input width responsive */
+  max-width: 500px; /* Max width for larger screens */
 `;
 
 export const ContactMeButton = styled.button`
@@ -256,13 +283,131 @@ export const ContactMeButton = styled.button`
     opacity: 0.8;
   }
 `;
- export const ContactMeTextarea = styled.textarea`
+
+export const ContactMeTextarea = styled.textarea`
   background-color: #333333;
   border: 2px solid #555555;
   color: white;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
-  width: 500px;
+  width: 100%; /* Make textarea width responsive */
+  max-width: 500px; /* Max width for larger screens */
   height: 100px;
+`;
+
+export const ProjectsDiv = styled.div`
+  background-color: #222222;
+  width: 100%;
+  height: auto; /* Height remains auto for responsiveness */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center align contents vertically */
+  align-items: center; /* Center align items horizontally */
+  padding: 10px;
+  overflow-y: auto;
+  color: white; 
+
+  @media (max-width: 768px) {
+    height: auto;
+    padding: 5px; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+  }
+`;
+export const ProjectsSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px; 
+  justify-content: center; 
+  width: 100%; 
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack projects on smaller screens */
+    align-items: center; /* Center items horizontally in column layout */
+    gap: 10px; /* Reduced gap for smaller screens */
+  }
+`;
+
+export const ViewGithub = styled.button`
+  display: block;
+  margin: 0;
+  position: relative;
+  padding: 10px 20px;
+  background-color: #87CEEB;
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer;
+  transition: background-color 0.3s, opacity 0.3s;
+
+  &:hover {
+    background-color: #6EA4C9; 
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px; 
+    width: 100%; /* Full width on mobile */
+  }
+`;
+
+export const BlogSection = styled.div`
+  background-color: #2c2c2c;
+  padding: 40px; 
+  color: white; 
+
+  @media (max-width: 768px) {
+    padding: 20px; /* Reduced padding for mobile */
+  }
+`;
+
+export const BlogList = styled.div`
+  display: flex; 
+  flex-wrap: wrap; 
+  margin-top: 20px; 
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack blog items on smaller screens */
+  }
+`;
+
+export const BlogItem = styled.div`
+  background-color: #3c3c3c; 
+  border-radius: 8px; 
+  padding: 20px; 
+  margin: 10px; 
+  flex: 1 1 calc(30% - 20px); 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+  transition: transform 0.2s; 
+
+  &:hover {
+    transform: translateY(-5px); 
+  }
+
+  @media (max-width: 768px) {
+    flex: 1 1 100%; /* Full width on mobile */
+  }
+`;
+
+export const BlogTitle = styled.h3`
+  color: #ffcc00; 
+`;
+
+export const BlogDescription = styled.p`
+  color: #e0e0e0; 
+`;
+
+export const BlogLink = styled.a`
+  color: #ffcc00; 
+  text-decoration: none; 
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline; 
+  }
 `;

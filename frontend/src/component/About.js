@@ -46,13 +46,14 @@ function About() {
         <SectionHeading>About Me</SectionHeading>
         <AboutFlex>
         <AnimatedParagraph ref={paragraphRef}>
-        Hey there! 🚀 I'm Ezaan Amin, and diving into the world of software engineering has been an exhilarating journey. When it comes to coding, I bring unwavering enthusiasm, dedicating my all to every project. It's not just about the lines of code; when challenges arise, I channel that passion into finding creative solutions.
+        Hey there! I’m Ezaan Amin, a passionate software developer and AI enthusiast based in Pakistan. My journey in technology is driven by a fascination with how innovation can transform and enhance human experiences.
 
-I hold a strong belief in the transformative power of technology to bring about meaningful change, and the excitement about the possibilities ahead keeps me fueled. From web development with Angela Yu to delving into machine learning and app development through Andrew Ng's courses, my skill set has become quite versatile.
+With certifications in Web Development, Machine Learning, and Deep Learning, I bring a diverse skill set to the table. I’m currently focused on making an impact in the tech industry by securing a position in the UAE, where I can contribute to exciting projects and continue growing professionally.
 
-Embarking on various projects, whether it's crafting restaurant websites or contributing to platforms with a positive impact, showcases my commitment and adaptability. The creativity I inject into finding solutions has become a valuable asset in this dynamic field.
+My expertise spans web development and AI, and I’m always eager to tackle new challenges and explore cutting-edge technologies. I’m working on several projects, including a social media platform aimed at building supportive communities and a range of applications for restaurant management and user interactions. I also enjoy writing about various tech topics, including AI, web development, and machine learning, which you can explore in the blog section.
 
-I'm eager to share more about my coding journey, and if you check out my portfolio, you'll get a deeper insight into the diverse projects I've been a part of! 🌐 Let's connect and explore the endless possibilities that lie ahead in the ever-evolving world of software engineering! 🤝✨
+Feel free to explore my portfolio to learn more about my projects and blogs, and connect with me if you’re interested in collaboration, discussing innovative ideas, or simply chatting about the latest developments in technology. I’m excited about new opportunities and look forward to connecting with you!
+ 
 </AnimatedParagraph>
 
           <AnimatedProfilePic ref={profilePicRef} src={Profile} />

@@ -9,7 +9,7 @@ const ProfessionalExpertiseSection = styled.div`
   width: 100%;
 
   @media (max-width: 768px) {
-    height: 950px;
+    height: 600px;
   }
 `;
 

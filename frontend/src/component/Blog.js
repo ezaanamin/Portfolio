@@ -1,19 +1,25 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
 import { SectionHeading } from '../styles';
-const BlogSection = styled.div`
-  background-color: #2c2c2c;
-  height: 500px; /* Adjust the height as needed */
-  color: white; /* Text color for the blog section */
-`;
+import { blogPosts } from './blogpost.js';
+import { BlogDescription,BlogItem,BlogSection,BlogTitle,BlogList,BlogLink } from '../styles';
 
 
 function Blog() {
   return (
     <BlogSection>
-        <SectionHeading>Blog</SectionHeading>
+      <SectionHeading>Blog</SectionHeading>
+      <BlogList>
+        {blogPosts.map((post, index) => (
+          <BlogItem key={index}>
+            <BlogTitle>{post.title}</BlogTitle>
+            <BlogDescription>{post.description}</BlogDescription>
+            <BlogLink href={post.link} target="_blank" rel="noopener noreferrer">Read more</BlogLink>
+          </BlogItem>
+        ))}
+      </BlogList>
     </BlogSection>
-  )
+  );
 }
 
-export default Blog
+export default Blog;
