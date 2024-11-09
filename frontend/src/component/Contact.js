@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import { SectionHeading,ContactMeButton,ContactMeSection,ContactMeTextarea,ContactMeInput,InputSection } from '../styles';
 import { useFormik } from 'formik';
@@ -69,3 +70,33 @@ function Contact() {
 }
 
 export default Contact
+=======
+import React from 'react';
+import { ContactMeSection, ContactText, ContactLink, Icon } from '../styles';
+import { FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+
+function Contact() {
+  return (
+    <ContactMeSection id="contact">
+      <h2>Contact Me</h2>
+      <ContactText>You can reach out to me via email or WhatsApp:</ContactText>
+
+      <div>
+        <p>
+          <Icon><FaEnvelope /></Icon>
+          <ContactLink href="mailto:ezaan.amin@gmail.com">ezaan.amin@gmail.com</ContactLink>
+        </p>
+        <p>
+          <Icon><FaWhatsapp /></Icon>
+          WhatsApp: +92 341 46265297
+        </p>
+        <ContactLink href="https://wa.me/9234146265297" target="_blank">
+          Message on WhatsApp
+        </ContactLink>
+      </div>
+    </ContactMeSection>
+  );
+}
+
+export default Contact;
+>>>>>>> e1e8599 (machine learning)

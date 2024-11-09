@@ -5,17 +5,24 @@ import { skills } from '../skills';
 
 const ProfessionalExpertiseSection = styled.div`
   background-color: #1a1a1a;
+<<<<<<< HEAD
   height: 300px;
   width: 100%;
 
   @media (max-width: 768px) {
     height: 600px;
   }
+=======
+  padding: 20px; /* Added padding for better spacing */
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding is included in the total width */
+>>>>>>> e1e8599 (machine learning)
 `;
 
 const Skills = styled.div`
   background-color: #333333;
   border: 2px solid #444444;
+<<<<<<< HEAD
   height: 150px;
   width: 400px;
   border-radius: 10px;
@@ -24,6 +31,17 @@ const Skills = styled.div`
   opacity: 0;
   transform: translateY(20px); /* Initial translateY for the animation effect */
   transition: opacity 3s ease, transform 3s ease;
+=======
+  border-radius: 10px;
+  color: white;
+  margin: 10px; /* Added margin for spacing */
+  opacity: 0;
+  transform: translateY(20px); /* Initial translateY for the animation effect */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Shortened transition for better responsiveness */
+  flex: 1 1 300px; /* Allow flexible sizing, defaulting to 300px but growing as needed */
+  max-width: 400px; /* Set a max-width to prevent overflow */
+  
+>>>>>>> e1e8599 (machine learning)
   &.in-view {
     opacity: 1;
     transform: translateY(0);
@@ -32,6 +50,7 @@ const Skills = styled.div`
 
 const SkillSection = styled.div`
   display: flex;
+<<<<<<< HEAD
   flex-direction: row;
   justify-content: center;
   margin-top: 20px;
@@ -40,6 +59,11 @@ const SkillSection = styled.div`
     flex-direction: column;
     align-items: center; /* Center the items vertically */
   }
+=======
+  flex-wrap: wrap; /* Allow wrapping of skill boxes */
+  justify-content: center; /* Center the items horizontally */
+  margin-top: 20px;
+>>>>>>> e1e8599 (machine learning)
 `;
 
 const animateOnScroll = () => {
@@ -63,6 +87,10 @@ const animateOnScroll = () => {
     observer.observe(box);
   });
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> e1e8599 (machine learning)
 const SkillsComponent = () => {
   useEffect(() => {
     animateOnScroll();

@@ -1,5 +1,9 @@
 import styled, { keyframes } from "styled-components";
+<<<<<<< HEAD
 
+=======
+import { Tabs as ReactTabs, TabList as ReactTabList, Tab as ReactTab, TabPanel as ReactTabPanel } from 'react-tabs';
+>>>>>>> e1e8599 (machine learning)
 
 const expandAnimation = keyframes`
   0% {
@@ -88,10 +92,17 @@ export const SubHeading = styled.h3`
 
 export const HeaderButton = styled.button`
   position: relative; 
+<<<<<<< HEAD
   width: 80%;
   max-width: 319px;
   min-width:400px;
   height: 50px;
+=======
+  width: 80%; /* Ensuring the button takes up 80% of its parent */
+  max-width: 319px; /* Maximum width for larger screens */
+  min-width: 200px; /* Set a reasonable minimum width for mobile screens */
+  height: 50px; /* Default height */
+>>>>>>> e1e8599 (machine learning)
   border-radius: 50px;
   color: black;
   background-color: #87CEEB;
@@ -110,13 +121,22 @@ export const HeaderButton = styled.button`
   @media (max-width: 768px) {
     height: 45px; /* Adjusted height for mobile */
     font-size: 0.875rem; /* Adjusted font size for mobile */
+<<<<<<< HEAD
+=======
+    min-width: 150px; /* Adjusted minimum width for smaller screens */
+    max-width: 90%; /* Allow the button to expand more on mobile */
+>>>>>>> e1e8599 (machine learning)
   }
 
   &::after {
     content: '';
     position: absolute;
     top: 50%;
+<<<<<<< HEAD
     right: 15px;
+=======
+    right: 15px; /* Keep some distance from the right edge */
+>>>>>>> e1e8599 (machine learning)
     transform: translateY(-50%);
     width: 0;
     height: 0;
@@ -240,6 +260,7 @@ export const AnimatedProfilePic = styled.img`
 
 export const ContactMeSection = styled.div`
   background-color: #444444;
+<<<<<<< HEAD
   height: auto; /* Change height to auto for responsiveness */
   color: white;
   padding: 20px; /* Added padding for better spacing */
@@ -296,6 +317,46 @@ export const ContactMeTextarea = styled.textarea`
   height: 100px;
 `;
 
+=======
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+`;
+
+export const ContactText = styled.p`
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #cccccc;
+`;
+
+export const ContactLink = styled.a`
+  color: #87ceeb;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+
+  &:hover {
+    color: #6ea4c9;
+    text-decoration: underline;
+  }
+`;
+
+// Icon styling
+export const Icon = styled.span`
+  margin-right: 8px;
+  color: #87ceeb;
+  font-size: 18px;
+  vertical-align: middle;
+`;
+>>>>>>> e1e8599 (machine learning)
 export const ProjectsDiv = styled.div`
   background-color: #222222;
   width: 100%;
@@ -411,3 +472,64 @@ export const BlogLink = styled.a`
     text-decoration: underline; 
   }
 `;
+<<<<<<< HEAD
+=======
+export const Tabs = styled(ReactTabs)`
+  width: 100%;
+  color: white;
+  margin: 0 auto;
+`;
+
+export const TabList = styled(ReactTabList)`
+  display: flex;
+  justify-content: center;
+  background-color: #444444; 
+  border-bottom: 2px solid #87CEEB;
+  padding: 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack tabs on smaller screens */
+    align-items: center;
+  }
+`;
+
+export const Tab = styled(ReactTab)`
+  list-style: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #cccccc;
+  font-weight: bold;
+ 
+  transition: color 0.3s, border-color 0.3s;
+
+  &.react-tabs__tab--selected {
+    color: #87CEEB; 
+    border-color: #87CEEB;
+  }
+
+  &:hover {
+    color: #6EA4C9;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%; /* Full width on mobile */
+    text-align: center;
+  }
+`;
+
+export const TabPanel = styled(ReactTabPanel)`
+  padding: 20px;
+  color: #e0e0e0;
+  background-color: #222222; 
+
+  border-top: none;
+
+  &.react-tabs__tab-panel--selected {
+    display: block;
+  }
+`;
+>>>>>>> e1e8599 (machine learning)
