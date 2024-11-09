@@ -5,65 +5,51 @@ import { skills } from '../skills';
 
 const ProfessionalExpertiseSection = styled.div`
   background-color: #1a1a1a;
-<<<<<<< HEAD
-  height: 300px;
+  padding: 20px; 
   width: 100%;
-
+  box-sizing: border-box; 
+  
   @media (max-width: 768px) {
-    height: 600px;
+    padding: 20px 10px;
   }
-=======
-  padding: 20px; /* Added padding for better spacing */
-  width: 100%;
-  box-sizing: border-box; /* Ensures padding is included in the total width */
->>>>>>> e1e8599 (machine learning)
 `;
 
 const Skills = styled.div`
   background-color: #333333;
   border: 2px solid #444444;
-<<<<<<< HEAD
-  height: 150px;
-  width: 400px;
   border-radius: 10px;
   color: white;
-  margin-right: 25px;
+  margin: 10px;
   opacity: 0;
-  transform: translateY(20px); /* Initial translateY for the animation effect */
-  transition: opacity 3s ease, transform 3s ease;
-=======
-  border-radius: 10px;
-  color: white;
-  margin: 10px; /* Added margin for spacing */
-  opacity: 0;
-  transform: translateY(20px); /* Initial translateY for the animation effect */
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Shortened transition for better responsiveness */
-  flex: 1 1 300px; /* Allow flexible sizing, defaulting to 300px but growing as needed */
-  max-width: 400px; /* Set a max-width to prevent overflow */
-  
->>>>>>> e1e8599 (machine learning)
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease; 
+  flex: 1 1 300px; 
+  max-width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+
   &.in-view {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin: 10px 0;
+    height: auto; 
   }
 `;
 
 const SkillSection = styled.div`
   display: flex;
-<<<<<<< HEAD
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center; /* Center the items vertically */
+    flex-direction: column; 
+    align-items: center;
   }
-=======
-  flex-wrap: wrap; /* Allow wrapping of skill boxes */
-  justify-content: center; /* Center the items horizontally */
-  margin-top: 20px;
->>>>>>> e1e8599 (machine learning)
 `;
 
 const animateOnScroll = () => {
@@ -87,10 +73,7 @@ const animateOnScroll = () => {
     observer.observe(box);
   });
 };
-<<<<<<< HEAD
-=======
 
->>>>>>> e1e8599 (machine learning)
 const SkillsComponent = () => {
   useEffect(() => {
     animateOnScroll();

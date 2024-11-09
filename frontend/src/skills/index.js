@@ -4,15 +4,9 @@ export const skills = [
       description:
         "Harnessing the power of algorithms and data, I specialize in developing intelligent systems through machine learning, ensuring applications learn, adapt, and evolve.",
     },
-<<<<<<< HEAD
-    {
-      title: "Android Alchemist",
-      description:
-        "Crafting seamless and innovative Android applications, I bring ideas to life by blending cutting-edge technology with user-centric design for a truly immersive mobile experience.",
-    },
-=======
-   
->>>>>>> e1e8599 (machine learning)
+
+ 
+
     {
       title: "MERN Stack Virtuoso",
       description:

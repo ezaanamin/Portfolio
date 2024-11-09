@@ -1,102 +1,93 @@
-<<<<<<< HEAD
-import React from 'react'
-import { SectionHeading,ContactMeButton,ContactMeSection,ContactMeTextarea,ContactMeInput,InputSection } from '../styles';
-import { useFormik } from 'formik';
-import * as yup from 'yup';
+import React from "react";
+import { FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
-function Contact() {
-    const validationSchema = yup.object({
-        name: yup.string().required('Name is required'),
-        email: yup.string().email('Invalid email address').required('Email is required'),
-        message: yup.string().required('Message is required'),
-      }); 
+const Contact = () => {
+  const containerStyle = {
+    backgroundColor: "#333",
+    color: "#fff",
+    padding: "30px",
+    textAlign: "center",
+    borderRadius: "8px",
+    width: "100%",  // Full width
+    maxWidth: "100%", // Max width 100%
+    margin: "0 auto",  // Centering horizontally
+    fontFamily: "Arial, sans-serif",
+  };
 
-      const formik = useFormik({
-        initialValues: {
-          name: '',
-          email: '',
-          message: '',
-        },
-        validationSchema: validationSchema,
-        onSubmit: (values) => {
-          // Handle the form submission logic here
-          console.log(values);
-        },
-      });
+  const headerStyle = {
+    fontSize: "1.8em",
+    marginBottom: "10px",
+  };
 
+  const paragraphStyle = {
+    marginBottom: "20px",
+    color: "#ccc",
+  };
+
+  const contactInfoStyle = {
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+    marginBottom: "20px",
+    alignItems: "center", // Ensures the content is centered
+  };
+
+  const contactItemStyle = {
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+    color: "#87c5fc",
+  };
+
+  const linkStyle = {
+    color: "#87c5fc",
+    textDecoration: "none",
+  };
+
+  const whatsappButtonStyle = {
+    backgroundColor: "#25d366",
+    color: "#fff",
+    padding: "10px 20px",
+    borderRadius: "5px",
+    textDecoration: "none",
+    fontWeight: "bold",
+    display: "inline-block",
+    marginTop: "20px", // Spacing above the button
+  };
 
   return (
-    <ContactMeSection id="contact">
-    <SectionHeading>Contact Me</SectionHeading>
-    <InputSection>
-      <ContactMeInput
-        type="text"
-        placeholder="Your Name"
-        name="name"
-        onChange={formik.handleChange}
-        value={formik.values.name}
-      />
-      {formik.touched.name && formik.errors.name ? (
-        <div style={{ color: 'red' }}>{formik.errors.name}</div>
-      ) : null}
-
-      <ContactMeInput
-        type="email"
-        placeholder="Your Email"
-        name="email"
-        onChange={formik.handleChange}
-        value={formik.values.email}
-      />
-      {formik.touched.email && formik.errors.email ? (
-        <div style={{ color: 'red' }}>{formik.errors.email}</div>
-      ) : null}
-
-      <ContactMeTextarea
-        placeholder="Your Message"
-        name="message"
-        onChange={formik.handleChange}
-        value={formik.values.message}
-      ></ContactMeTextarea>
-      {formik.touched.message && formik.errors.message ? (
-        <div style={{ color: 'red' }}>{formik.errors.message}</div>
-      ) : null}
-
-      <ContactMeButton type="submit" onClick={formik.handleSubmit}>
-        Submit
-      </ContactMeButton>
-    </InputSection>
-  </ContactMeSection>
-  )
-}
-
-export default Contact
-=======
-import React from 'react';
-import { ContactMeSection, ContactText, ContactLink, Icon } from '../styles';
-import { FaEnvelope, FaWhatsapp } from 'react-icons/fa';
-
-function Contact() {
-  return (
-    <ContactMeSection id="contact">
-      <h2>Contact Me</h2>
-      <ContactText>You can reach out to me via email or WhatsApp:</ContactText>
-
-      <div>
-        <p>
-          <Icon><FaEnvelope /></Icon>
-          <ContactLink href="mailto:ezaan.amin@gmail.com">ezaan.amin@gmail.com</ContactLink>
-        </p>
-        <p>
-          <Icon><FaWhatsapp /></Icon>
-          WhatsApp: +92 341 46265297
-        </p>
-        <ContactLink href="https://wa.me/9234146265297" target="_blank">
-          Message on WhatsApp
-        </ContactLink>
+    <div style={containerStyle}>
+      <h2 style={headerStyle}>Contact Me</h2>
+      <p style={paragraphStyle}>You can reach out to me via email or WhatsApp:</p>
+      <div style={contactInfoStyle}>
+        <div style={contactItemStyle}>
+          <FaEnvelope size={24} /> {/* React Icon for email */}
+          <a href="mailto:ezaan.amin@gmail.com" style={linkStyle}>
+            ezaan.amin@gmail.com
+          </a>
+        </div>
+        <div style={contactItemStyle}>
+          <FaWhatsapp size={24} />
+          <a
+            href="https://wa.me/923414626529"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={linkStyle}
+          >
+            WhatsApp: +92 341 4626529
+          </a>
+        </div>
       </div>
-    </ContactMeSection>
+      <a
+        href="https://wa.me/923414626529"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={whatsappButtonStyle}
+      >
+        Message on WhatsApp
+      </a>
+    </div>
   );
-}
+};
 
 export default Contact;
->>>>>>> e1e8599 (machine learning)

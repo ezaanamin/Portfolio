@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
 *{
   margin: 0;
-<<<<<<< HEAD
 
-=======
+
  overflow-x: hidden;
->>>>>>> e1e8599 (machine learning)
+
 }
 body {
   font-family: 'Poppins', sans-serif;

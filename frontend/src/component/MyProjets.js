@@ -1,24 +1,11 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { SectionHeading } from '../styles';
-import CardFlip from './CardFlip';
-<<<<<<< HEAD
+import ReactCardFlip from 'react-card-flip';
 import { ProjectsDesc } from '../project';
-import ReactCardFlip from 'react-card-flip';
-import { ProjectsDiv,ProjectsSection,ViewGithub } from '../styles';
-
-
+import { ProjectsDiv, ProjectsSection, ViewGithub } from '../styles';
+import { Tabs, TabList, TabPanel, Tab } from "../styles/index.js"
+import { ML_Project } from '../ml_project.js';
 function MyProjects() {
-=======
-import { ProjectsDesc } from '../web_project';
-import { ML_Project } from '../ml_project';
-import ReactCardFlip from 'react-card-flip';
-import { ProjectsDiv,ProjectsSection,ViewGithub } from '../styles';
-import { Tabs,TabList,TabPanel,Tab } from '../styles';
-import 'react-tabs/style/react-tabs.css';
-function MyProjects() {
-
->>>>>>> e1e8599 (machine learning)
   const [flippedStates, setFlippedStates] = useState({});
 
   const handleFlip = (projectName) => {
@@ -31,59 +18,6 @@ function MyProjects() {
   return (
     <ProjectsDiv>
       <SectionHeading>My Projects</SectionHeading>
-<<<<<<< HEAD
-      <ProjectsSection>
-        {ProjectsDesc.map((project) => (
-          <ReactCardFlip
-            key={project.name}
-            isFlipped={flippedStates[project.name] || false}
-            flipDirection="horizontal"
-          >
-            <div
-              style={{
-                width: '350px',
-                height: '350px',
-                backgroundColor: '#333333', 
-                color: 'white', 
-                borderRadius: '8px', 
-                display: 'flex', 
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                cursor: 'pointer', 
-              }}
-              onClick={() => handleFlip(project.name)}
-              className="front"
-            >
-              <h2 style={{ textAlign: 'center', padding: 20 }}>{project.name}</h2>
-              <h3 style={{ textAlign: 'center', padding: 20, fontWeight: 'normal' }}>
-                {project.description}
-              </h3>
-            </div>
-  
-            <div
-              style={{
-                width: '350px',
-                height: '350px',
-                backgroundColor: '#2A2A2A', 
-                color: 'white',
-                borderRadius: '8px', 
-                display: 'flex', 
-                justifyContent: 'center',
-                alignItems: 'center',
-                cursor: 'pointer', 
-              }}
-              onClick={() => handleFlip(project.name)}
-              className="back"
-            >
-              <a href={project.github} style={{ textDecoration: 'none' }}>
-                <ViewGithub>View on Github</ViewGithub>
-              </a>
-            </div>
-          </ReactCardFlip>
-        ))}
-      </ProjectsSection>
-=======
       <Tabs>
         <TabList>
           <Tab>Web Development</Tab>
@@ -136,7 +70,7 @@ function MyProjects() {
                   className="back"
                 >
                   <a href={project.github} style={{ textDecoration: 'none' }}>
-                    <ViewGithub>View on Github</ViewGithub>
+                    <ViewGithub>View on GitHub</ViewGithub>
                   </a>
                 </div>
               </ReactCardFlip>
@@ -190,7 +124,7 @@ function MyProjects() {
                   className="back"
                 >
                   <a href={project.github} style={{ textDecoration: 'none' }}>
-                    <ViewGithub>View on Github</ViewGithub>
+                    <ViewGithub>View on GitHub</ViewGithub>
                   </a>
                 </div>
               </ReactCardFlip>
@@ -198,7 +132,6 @@ function MyProjects() {
           </ProjectsSection>
         </TabPanel>
       </Tabs>
->>>>>>> e1e8599 (machine learning)
     </ProjectsDiv>
   );
 }

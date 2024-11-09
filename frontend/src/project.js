@@ -14,11 +14,7 @@ export const ProjectsDesc=[
       "description": "A mobile application for restaurant riders to manage orders using React Native, Redux, and WebSocket.",
       "github": "https://github.com/ezaanamin/Restaurant-Rider-Panel"
     },
-    {
-      "name": "Housing Price Prediction Model",
-      "description": "A machine learning model for predicting housing prices based on various features.",
-      "github": "https://github.com/ezaanamin/Housing-Price-Prediction-Model"
-    },
+  
     {
       "name": "Restaurant User-Facing Panel",
       "description": "A web application allowing customers to interact with a restaurant, place orders, and track order status using the MERN stack.",
