@@ -44,49 +44,33 @@ const Contact = () => {
     textDecoration: "none",
   };
 
-  const whatsappButtonStyle = {
-    backgroundColor: "#25d366",
-    color: "#fff",
-    padding: "10px 20px",
-    borderRadius: "5px",
-    textDecoration: "none",
-    fontWeight: "bold",
-    display: "inline-block",
-    marginTop: "20px", // Spacing above the button
-  };
+
 
   return (
-    <div style={containerStyle}>
-      <h2 style={headerStyle}>Contact Me</h2>
-      <p style={paragraphStyle}>You can reach out to me via email or WhatsApp:</p>
-      <div style={contactInfoStyle}>
-        <div style={contactItemStyle}>
-          <FaEnvelope size={24} /> {/* React Icon for email */}
-          <a href="mailto:ezaan.amin@gmail.com" style={linkStyle}>
-            ezaan.amin@gmail.com
-          </a>
-        </div>
-        <div style={contactItemStyle}>
-          <FaWhatsapp size={24} />
-          <a
-            href="https://wa.me/923414626529"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={linkStyle}
-          >
-            WhatsApp: +92 341 4626529
-          </a>
-        </div>
-      </div>
+<div id="contact" style={containerStyle}>
+  <h2 style={headerStyle}>Contact Me</h2>
+  <p style={paragraphStyle}>You can reach out to me via email or WhatsApp:</p>
+  <div style={contactInfoStyle}>
+    <div style={contactItemStyle}>
+      <FaEnvelope size={24} /> {/* React Icon for email */}
+      <a href="mailto:ezaan.amin@gmail.com" style={linkStyle}>
+        ezaan.amin@gmail.com
+      </a>
+    </div>
+    <div style={contactItemStyle}>
+      <FaWhatsapp size={24} />
       <a
         href="https://wa.me/923414626529"
         target="_blank"
         rel="noopener noreferrer"
-        style={whatsappButtonStyle}
+        style={linkStyle}
       >
-        Message on WhatsApp
+        WhatsApp: +92 341 4626529
       </a>
     </div>
+  </div>
+</div>
+
   );
 };
 

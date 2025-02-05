@@ -1,33 +1,24 @@
-import React, { useContext } from 'react';
-import { cardStyle, cardWrapperStyle, cardFaceStyle } from "../styles/index";
+import React from "react";
+import "../styles/style.css";
 
-
-function CardFlip(props) {
-
-
-  const { isFlipped, setFlipped, cardtheme, flippedBackgroundColor, frontBackgroundColor, backImage, children } = props;
-
-  const handleCardFlip = () => {
- 
-    setFlipped(!isFlipped);
-  };
-
-  const wrapperStyle = cardWrapperStyle(isFlipped);
-  const faceStyle = cardFaceStyle({
-    isFlipped,
-    flippedBackgroundColor,
-    frontBackgroundColor,
-    backImage,
-    is3D: true,
-  });
-
+function CardFlip({ title, description, link }) {
   return (
-    <div style={cardStyle} onClick={handleCardFlip}>
-      <div style={wrapperStyle}>
-        <div style={faceStyle}>
-          {children}
+    <div className="card-container">
+      <div className="card">
+        <div className="card-content">
+          <h4 className="card-title">{title}</h4>
+          <p className="card-body">{description}</p>
+          <a
+            href={link}
+            className="button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open Github
+          </a>
         </div>
       </div>
+      {/* Add more <CardFlip /> components here if needed */}
     </div>
   );
 }

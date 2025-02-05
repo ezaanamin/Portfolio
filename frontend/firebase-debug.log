@@ -1,0 +1,101 @@
+[debug] [2025-02-05T08:51:41.172Z] ----------------------------------------------------------------------
+[debug] [2025-02-05T08:51:41.180Z] Command:       /usr/bin/node /usr/local/bin/firebase deploy
+[debug] [2025-02-05T08:51:41.182Z] CLI Version:   13.23.1
+[debug] [2025-02-05T08:51:41.182Z] Platform:      linux
+[debug] [2025-02-05T08:51:41.183Z] Node Version:  v18.19.1
+[debug] [2025-02-05T08:51:41.184Z] Time:          Wed Feb 05 2025 13:51:41 GMT+0500 (Pakistan Standard Time)
+[debug] [2025-02-05T08:51:41.184Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-02-05T08:51:41.346Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-02-05T08:51:41.348Z] > authorizing via signed-in user (ezaan.amin@gmail.com)
+[debug] [2025-02-05T08:51:41.348Z] [iam] checking project ezaanamin-7cbcf for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-02-05T08:51:41.351Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:41.352Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:41.354Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/ezaanamin-7cbcf:testIamPermissions [none]
+[debug] [2025-02-05T08:51:41.355Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/ezaanamin-7cbcf:testIamPermissions x-goog-quota-user=projects/ezaanamin-7cbcf
+[debug] [2025-02-05T08:51:41.355Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ezaanamin-7cbcf:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-02-05T08:51:42.969Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/ezaanamin-7cbcf:testIamPermissions 200
+[debug] [2025-02-05T08:51:42.970Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ezaanamin-7cbcf:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-02-05T08:51:42.974Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:42.974Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:42.977Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ezaanamin-7cbcf [none]
+[debug] [2025-02-05T08:51:43.686Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ezaanamin-7cbcf 200
+[debug] [2025-02-05T08:51:43.687Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ezaanamin-7cbcf {"projectId":"ezaanamin-7cbcf","projectNumber":"797746834075","displayName":"ezaanamin","name":"projects/ezaanamin-7cbcf","resources":{"hostingSite":"ezaanamin-7cbcf"},"state":"ACTIVE","etag":"1_231cd5e2-16e7-474e-a9dc-dff5a70f4eb0"}
+[info] 
+[info] === Deploying to 'ezaanamin-7cbcf'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-02-05T08:51:43.708Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:43.708Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:43.709Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ezaanamin-7cbcf/versions [none]
+[debug] [2025-02-05T08:51:43.709Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ezaanamin-7cbcf/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2025-02-05T08:51:46.763Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ezaanamin-7cbcf/versions 200
+[debug] [2025-02-05T08:51:46.764Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ezaanamin-7cbcf/versions {"name":"projects/797746834075/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[ezaanamin-7cbcf]: beginning deploy... 
+[info] i  hosting[ezaanamin-7cbcf]: found 15 files in build 
+[debug] [2025-02-05T08:51:46.833Z] [hosting] uploading with 200 concurrency
+[debug] [2025-02-05T08:51:47.668Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:47.668Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:47.670Z] [hosting] hash cache [YnVpbGQ] stored for 15 files
+[debug] [2025-02-05T08:51:47.670Z] [hosting][hash queue][FINAL] {"max":815,"min":26,"avg":93.13333333333334,"active":0,"complete":15,"success":15,"errored":0,"retried":0,"total":15,"elapsed":827}
+[debug] [2025-02-05T08:51:47.671Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/797746834075/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f:populateFiles [none]
+[debug] [2025-02-05T08:51:47.671Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/797746834075/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f:populateFiles {"files":{"/manifest.json":"0958a5e0c831126100c8c2d06a6bbaa665a3900f21aaff4130238a6f5a113aa1","/index.html":"22b811abdbcd79666d432c79534f6330a22eb0af09ba0dfddf3f9230526ca9ab","/asset-manifest.json":"af778e4cbbc3aa9646cb328ca583d5984c41f2ee1772ee5ee05ce4e43be19e56","/404.html":"b7bab6b83fa074653ff28c8d2a64135d3434575f70a12ab3d3ba8080461b9537","/static/js/main.3f3256a3.js.LICENSE.txt":"d42dd61e7eb65254e17e2b70d17e949a520276cbe4d6768f36015828539c5e5c","/logo512.png":"7779210d56c1f3741e2e487799fe3092def4fa6ac450a60532b807c3a8971205","/robots.txt":"2544ca049f223a42bff01f72ad930a5edba75bbb7199d0f8430a02ff5aca16ec","/favicon.ico":"5e1d8bfad6cce416553316b9f2be55b9c22ea38d7f3368b306c80a9558bdb0af","/logo192.png":"76c449ccb9cd117c2f2338f091b18f7050f3210e249b2228f5c81b23f34377cd","/static/css/main.7530b876.css":"9f9e76b06c6252ce1761071ad919eccd824a947adfec9552186f6cf62f4991e2","/static/css/main.7530b876.css.map":"339c75045a4a9da8bb5ae6722fb8016a73c9d8e1a798157f5d825d4ddb31a4fc","/static/media/Profile.b6c4f92a2043691c5bc0.jpeg":"6a973cae994f9f116912ac7cc6352c2abaac277fd7ee558fa389cdd798061dca","/static/js/main.3f3256a3.js":"7a6ff31251a06062800c36ba5af7627f0cd424f28a9e3365832d5bb90690e75f","/static/media/Header_Section_2.37f9618ac10afa3bfcdd.jpg":"55c3f14a6b9d1cc245a008a414d5c13b14d1dbf51f7d692417f00fb5f5c25e6a","/static/js/main.3f3256a3.js.map":"33bc6f9c7cbce94ceb7c792a16553b55dd69db7bd3fb4d00ac6fb510695a5636"}}
+[debug] [2025-02-05T08:51:49.616Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/797746834075/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f:populateFiles 200
+[debug] [2025-02-05T08:51:49.616Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/797746834075/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f:populateFiles {"uploadRequiredHashes":["22b811abdbcd79666d432c79534f6330a22eb0af09ba0dfddf3f9230526ca9ab","af778e4cbbc3aa9646cb328ca583d5984c41f2ee1772ee5ee05ce4e43be19e56","9f9e76b06c6252ce1761071ad919eccd824a947adfec9552186f6cf62f4991e2","339c75045a4a9da8bb5ae6722fb8016a73c9d8e1a798157f5d825d4ddb31a4fc"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files"}
+[debug] [2025-02-05T08:51:49.618Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:49.618Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:49.619Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:49.619Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:49.620Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:49.620Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:49.620Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:49.620Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:49.620Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files/22b811abdbcd79666d432c79534f6330a22eb0af09ba0dfddf3f9230526ca9ab [none]
+[debug] [2025-02-05T08:51:49.621Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files/22b811abdbcd79666d432c79534f6330a22eb0af09ba0dfddf3f9230526ca9ab [stream]
+[debug] [2025-02-05T08:51:49.624Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files/af778e4cbbc3aa9646cb328ca583d5984c41f2ee1772ee5ee05ce4e43be19e56 [none]
+[debug] [2025-02-05T08:51:49.624Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files/af778e4cbbc3aa9646cb328ca583d5984c41f2ee1772ee5ee05ce4e43be19e56 [stream]
+[debug] [2025-02-05T08:51:49.628Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files/9f9e76b06c6252ce1761071ad919eccd824a947adfec9552186f6cf62f4991e2 [none]
+[debug] [2025-02-05T08:51:49.628Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files/9f9e76b06c6252ce1761071ad919eccd824a947adfec9552186f6cf62f4991e2 [stream]
+[debug] [2025-02-05T08:51:49.632Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files/339c75045a4a9da8bb5ae6722fb8016a73c9d8e1a798157f5d825d4ddb31a4fc [none]
+[debug] [2025-02-05T08:51:49.632Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files/339c75045a4a9da8bb5ae6722fb8016a73c9d8e1a798157f5d825d4ddb31a4fc [stream]
+[debug] [2025-02-05T08:51:49.636Z] [hosting][populate queue][FINAL] {"max":1952,"min":1952,"avg":1952,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1968}
+[debug] [2025-02-05T08:51:49.637Z] [hosting] uploads queued: 4
+[debug] [2025-02-05T08:51:51.257Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files/af778e4cbbc3aa9646cb328ca583d5984c41f2ee1772ee5ee05ce4e43be19e56 200
+[debug] [2025-02-05T08:51:51.257Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files/af778e4cbbc3aa9646cb328ca583d5984c41f2ee1772ee5ee05ce4e43be19e56 [stream]
+[debug] [2025-02-05T08:51:51.284Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files/339c75045a4a9da8bb5ae6722fb8016a73c9d8e1a798157f5d825d4ddb31a4fc 200
+[debug] [2025-02-05T08:51:51.285Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files/339c75045a4a9da8bb5ae6722fb8016a73c9d8e1a798157f5d825d4ddb31a4fc [stream]
+[debug] [2025-02-05T08:51:51.391Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files/9f9e76b06c6252ce1761071ad919eccd824a947adfec9552186f6cf62f4991e2 200
+[debug] [2025-02-05T08:51:51.391Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files/9f9e76b06c6252ce1761071ad919eccd824a947adfec9552186f6cf62f4991e2 [stream]
+[debug] [2025-02-05T08:51:51.411Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files/22b811abdbcd79666d432c79534f6330a22eb0af09ba0dfddf3f9230526ca9ab 200
+[debug] [2025-02-05T08:51:51.412Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f/files/22b811abdbcd79666d432c79534f6330a22eb0af09ba0dfddf3f9230526ca9ab [stream]
+[debug] [2025-02-05T08:51:51.412Z] [hosting][upload queue][FINAL] {"max":1795,"min":1639,"avg":1718,"active":0,"complete":4,"success":4,"errored":0,"retried":0,"total":4,"elapsed":1795}
+[info] ✔  hosting[ezaanamin-7cbcf]: file upload complete 
+[debug] [2025-02-05T08:51:51.414Z] [hosting] deploy completed after 4641ms
+[debug] [2025-02-05T08:51:51.415Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "site": "ezaanamin-7cbcf"
+    },
+    "version": "projects/797746834075/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f"
+  }
+]
+[info] i  hosting[ezaanamin-7cbcf]: finalizing version... 
+[debug] [2025-02-05T08:51:51.419Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:51.419Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:51.421Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f updateMask=status%2Cconfig
+[debug] [2025-02-05T08:51:51.421Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f {"status":"FINALIZED","config":{}}
+[debug] [2025-02-05T08:51:53.507Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f 200
+[debug] [2025-02-05T08:51:53.507Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f {"name":"projects/797746834075/sites/ezaanamin-7cbcf/versions/26f485e6769ea08f","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-02-05T08:51:45.463068Z","createUser":{"email":"Ezaan.Amin@gmail.com"},"finalizeTime":"2025-02-05T08:51:53.168754Z","finalizeUser":{"email":"Ezaan.Amin@gmail.com"}}
+[debug] [2025-02-05T08:51:53.508Z] [hosting] finalized version for ezaanamin-7cbcf:[object Object]
+[info] ✔  hosting[ezaanamin-7cbcf]: version finalized 
+[info] i  hosting[ezaanamin-7cbcf]: releasing new version... 
+[debug] [2025-02-05T08:51:53.509Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:53.509Z] Checked if tokens are valid: true, expires at: 1738748637876
+[debug] [2025-02-05T08:51:53.510Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ezaanamin-7cbcf/channels/live/releases versionName=projects%2F797746834075%2Fsites%2Fezaanamin-7cbcf%2Fversions%2F26f485e6769ea08f
+[debug] [2025-02-05T08:51:53.511Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ezaanamin-7cbcf/channels/live/releases {}

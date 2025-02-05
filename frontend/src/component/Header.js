@@ -15,7 +15,7 @@ function Header() {
     <Body>
       <Background headerImage={HeaderImage}>
         <Heading>Ezaan Amin</Heading>
-        <SubHeading>Software Engineer</SubHeading>
+        <SubHeading>AI-Powered Web Developer</SubHeading>
         {/* Use Link to scroll to the contact section */}
         <Link to="contact" smooth={true} duration={800}>
           <HeaderButton onClick={scrollToContact}>Get in Touch</HeaderButton>

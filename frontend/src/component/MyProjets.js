@@ -1,133 +1,62 @@
-import React, { useState } from 'react';
-import { SectionHeading } from '../styles';
-import ReactCardFlip from 'react-card-flip';
-import { ProjectsDesc } from '../project';
-import { ProjectsDiv, ProjectsSection, ViewGithub } from '../styles';
-import { Tabs, TabList, TabPanel, Tab } from "../styles/index.js"
-import { ML_Project } from '../ml_project.js';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { ProjectsDesc } from "../project";
+import { ML_Project } from "../ml_project";
+import { ProjectsDiv, ProjectsSection, ViewGithub } from "../styles";
+import { Tabs, TabList, TabPanel, Tab } from "../styles/index.js";
+import CardFlip from "../component/CardFlip.jsx"
+
 function MyProjects() {
-  const [flippedStates, setFlippedStates] = useState({});
-
-  const handleFlip = (projectName) => {
-    setFlippedStates((prevState) => ({
-      ...prevState,
-      [projectName]: !prevState[projectName],
-    }));
-  };
-
   return (
     <ProjectsDiv>
-      <SectionHeading>My Projects</SectionHeading>
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        My Projects
+      </motion.h2>
+
       <Tabs>
         <TabList>
           <Tab>Web Development</Tab>
           <Tab>Machine Learning</Tab>
         </TabList>
-        
+
         <TabPanel>
           <ProjectsSection>
             {ProjectsDesc.map((project) => (
-              <ReactCardFlip
+              <motion.div
                 key={project.name}
-                isFlipped={flippedStates[project.name] || false}
-                flipDirection="horizontal"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <div
-                  style={{
-                    width: '350px',
-                    height: '350px',
-                    backgroundColor: '#333333', 
-                    color: 'white', 
-                    borderRadius: '8px', 
-                    display: 'flex', 
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    cursor: 'pointer', 
-                  }}
-                  onClick={() => handleFlip(project.name)}
-                  className="front"
-                >
-                  <h2 style={{ textAlign: 'center', padding: 20 }}>{project.name}</h2>
-                  <h3 style={{ textAlign: 'center', padding: 20, fontWeight: 'normal' }}>
-                    {project.description}
-                  </h3>
-                </div>
-
-                <div
-                  style={{
-                    width: '350px',
-                    height: '350px',
-                    backgroundColor: '#2A2A2A', 
-                    color: 'white',
-                    borderRadius: '8px', 
-                    display: 'flex', 
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    cursor: 'pointer', 
-                  }}
-                  onClick={() => handleFlip(project.name)}
-                  className="back"
-                >
-                  <a href={project.github} style={{ textDecoration: 'none' }}>
-                    <ViewGithub>View on GitHub</ViewGithub>
-                  </a>
-                </div>
-              </ReactCardFlip>
+                <CardFlip 
+                  title={project.name} 
+                  description={project.description} 
+                  link={project.github} 
+                />
+              </motion.div>
             ))}
           </ProjectsSection>
         </TabPanel>
-        
+
         <TabPanel>
           <ProjectsSection>
             {ML_Project.map((project) => (
-              <ReactCardFlip
+              <motion.div
                 key={project.name}
-                isFlipped={flippedStates[project.name] || false}
-                flipDirection="horizontal"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <div
-                  style={{
-                    width: '350px',
-                    height: '350px',
-                    backgroundColor: '#333333', 
-                    color: 'white', 
-                    borderRadius: '8px', 
-                    display: 'flex', 
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    cursor: 'pointer', 
-                  }}
-                  onClick={() => handleFlip(project.name)}
-                  className="front"
-                >
-                  <h2 style={{ textAlign: 'center', padding: 20 }}>{project.name}</h2>
-                  <h3 style={{ textAlign: 'center', padding: 20, fontWeight: 'normal' }}>
-                    {project.description}
-                  </h3>
-                </div>
-
-                <div
-                  style={{
-                    width: '350px',
-                    height: '350px',
-                    backgroundColor: '#2A2A2A', 
-                    color: 'white',
-                    borderRadius: '8px', 
-                    display: 'flex', 
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    cursor: 'pointer', 
-                  }}
-                  onClick={() => handleFlip(project.name)}
-                  className="back"
-                >
-                  <a href={project.github} style={{ textDecoration: 'none' }}>
-                    <ViewGithub>View on GitHub</ViewGithub>
-                  </a>
-                </div>
-              </ReactCardFlip>
+                <CardFlip 
+                  title={project.name} 
+                  description={project.description} 
+                  link={project.github} 
+                />
+              </motion.div>
             ))}
           </ProjectsSection>
         </TabPanel>

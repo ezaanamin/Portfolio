@@ -1,42 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { SectionHeading } from '../styles';
 import { skills } from '../skills';
 
 const ProfessionalExpertiseSection = styled.div`
   background-color: #1a1a1a;
-  padding: 20px; 
-  width: 100%;
-  box-sizing: border-box; 
-  
-  @media (max-width: 768px) {
-    padding: 20px 10px;
-  }
-`;
-
-const Skills = styled.div`
-  background-color: #333333;
-  border: 2px solid #444444;
-  border-radius: 10px;
-  color: white;
-  margin: 10px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.3s ease, transform 0.3s ease; 
-  flex: 1 1 300px; 
-  max-width: 400px;
   padding: 20px;
+  width: 100%;
   box-sizing: border-box;
 
-  &.in-view {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
   @media (max-width: 768px) {
-    max-width: 100%;
-    margin: 10px 0;
-    height: auto; 
+    padding: 20px 10px;
   }
 `;
 
@@ -47,36 +21,83 @@ const SkillSection = styled.div`
   margin-top: 20px;
 
   @media (max-width: 768px) {
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
   }
 `;
 
-const animateOnScroll = () => {
-  const skillBoxes = document.querySelectorAll('.skill-box');
+const SkillsCard = styled.div`
+  margin: 10px;
+  flex: 1 1 300px;
+  max-width: 400px;
+  box-sizing: border-box;
+`;
 
-  const options = {
-    threshold: 0.2, // Adjust as needed
-  };
+const Box = styled.div`
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to right, #333333, #555555); /* Darker gradient */
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out; /* Transition for smooth effect */
+  position: relative;
+  margin: 50px;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-      } else {
-        entry.target.classList.remove('in-view'); // Remove the class when not intersecting
-      }
-    });
-  }, options);
+  h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: transform 0.3s, color 0.3s ease-in-out;
+    z-index: 1;
+  }
 
-  skillBoxes.forEach((box) => {
-    observer.observe(box);
-  });
-};
+  p {
+    text-align: center;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    opacity: 0.85;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &:hover h2 {
+    transform: scale(1.2); /* Grow the title on hover */
+    color: #3498db; /* Accent color */
+  }
+
+  &:hover p {
+    opacity: 1; /* Make content fully visible on hover */
+  }
+`;
 
 const SkillsComponent = () => {
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  const boxRef = useRef(null);
+
   useEffect(() => {
-    animateOnScroll();
+    const handleMouseMove = (e) => {
+      const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
+      const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+      setRotation({ x: xAxis, y: yAxis });
+    };
+
+    const handleMouseLeave = () => {
+      setRotation({ x: 0, y: 0 });
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    boxRef.current?.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      boxRef.current?.removeEventListener('mouseleave', handleMouseLeave);
+    };
   }, []);
 
   return (
@@ -84,10 +105,17 @@ const SkillsComponent = () => {
       <SectionHeading>Professional Expertise</SectionHeading>
       <SkillSection>
         {skills.map((skill, index) => (
-          <Skills className="skill-box" key={index}>
-            <h3>{skill.title}</h3>
-            <p>{skill.description}</p>
-          </Skills>
+          <SkillsCard key={index}>
+            <Box
+              ref={boxRef}
+              style={{
+                transform: `rotateY(${rotation.x}deg) rotateX(${rotation.y}deg)`,
+              }}
+            >
+              <h2>{skill.title}</h2>
+              <p>{skill.description}</p>
+            </Box>
+          </SkillsCard>
         ))}
       </SkillSection>
     </ProfessionalExpertiseSection>

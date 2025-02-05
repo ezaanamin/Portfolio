@@ -299,14 +299,15 @@ export const ContactMeTextarea = styled.textarea`
 export const ProjectsDiv = styled.div`
   background-color: #222222;
   width: 100%;
-  height: auto; /* Height remains auto for responsiveness */
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center; /* Center align contents vertically */
   align-items: center; /* Center align items horizontally */
   padding: 10px;
-  overflow-y: auto;
+  overflow: hidden;
   color: white; 
+  
 
   @media (max-width: 768px) {
     height: auto;
